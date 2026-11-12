@@ -1,0 +1,47 @@
+
+
+
+CREATE TABLE XXAI_AP_SUPPLIER_DOCUMENTS (
+    id NUMBER
+        GENERATED ALWAYS AS IDENTITY
+        (START WITH 1 INCREMENT BY 1)
+        CONSTRAINT pk_xxai_ap_supplier_documents PRIMARY KEY,
+    vendor_id NUMBER NOT NULL,
+    vendor_name VARCHAR2(240),
+    segment1 VARCHAR2(50),
+    cif BLOB,
+    ac BLOB,
+    tipo_archivo VARCHAR2(64),
+    metadatos JSON,
+    estatus VARCHAR2(30) NOT NULL,
+    estatus_IA VARCHAR2(100),
+    created_by NUMBER NOT NULL,
+    creation_date DATE DEFAULT SYSDATE NOT NULL,
+    last_updated_by NUMBER NOT NULL,
+    last_update_date DATE DEFAULT SYSDATE NOT NULL
+);
+
+
+ALTER TABLE XXAI_AP_SUPPLIER_DOCUMENTS
+ADD nombre_archivo VARCHAR2(255);
+
+-- drop table XXAI_AP_SUPPLIER_DOCUMENTS;
+
+
+Tablas:
+*  maestra de proveedor
+*  Tipos de documento
+*  documento
+
+DOCUMENTO_PROVEEDOR
+---------------------------------------------
+ID_DOCUMENTO            NUMBER 
+ID_PROVEEDOR            NUMBER 
+ID_TIPO_DOCUMENTO       NUMBER 
+NOMBRE_ARCHIVO          VARCHAR2
+TIPO_ARCHIVO            VARCHAR2   pdf/
+ARCHIVO             	BLOB
+HASH_DOCUMENTO          VARCHAR2
+FECHA_CARGA             DATE
+VERSION_DOCUMENTO       NUMBER
+ESTATUS_IA              VARCHAR2
